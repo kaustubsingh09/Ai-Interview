@@ -9,7 +9,7 @@ const cors = require("cors");
 const app = express();
 
 app.use(bodyParser.json());
-dotenv.config({ path: "./config.env" });
+dotenv.config({ path: "./.env" });
 app.use(cors());
 
 const signToken = (id) => {
@@ -121,6 +121,6 @@ app.post("/prompt", async (req, res) => {
 
 connectDb();
 
-app.listen(5000, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server Listening");
 });
